@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Protected Song Page</title>
+<style>
+    body {
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        margin-top: 50px;
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        color: #fff;
+    }
+    #lyrics {
+        display: none;
+        margin-top: 30px;
+        white-space: pre-wrap;
+        font-size: 20px;
+        line-height: 1.5;
+        opacity: 0;
+        transition: opacity 2s;
+    }
+    input {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: #ff6f91;
+        color: #fff;
+        transition: transform 0.3s;
+    }
+    button:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+<body>
+<h1>Enter Password to Reveal the Song 🎵</h1>
+<input type="password" id="passwordInput" placeholder="Enter password">
+<button onclick="checkPassword()">Submit</button>
+
+<div id="lyrics">
+    <h2>Song Lyrics:</h2>
+    <p>
+O haawaa lai sodhi hera na  
+Yo aakash lai pani  
+Thaha cha din bitigo maayaa  
+Tara raat chadai cha ni  
+Sapani maa aayi rahnu hai maya  
+Sataai rahnu malai  
+Chandrama jhai chakilo muhara
+tyo sano kalo tika lagaye  
+
+    </p>
+</div>
+
+<audio id="music" src="song.mp3"></audio> <!-- optional, upload song.mp3 -->
+
+<script>
+function checkPassword() {
+    let pass = document.getElementById("passwordInput").value;
+    if (pass === "firfirey") {
+        let lyricsDiv = document.getElementById("lyrics");
+        lyricsDiv.style.display = "block";
+        setTimeout(() => { lyricsDiv.style.opacity = 1; }, 100); // fade in
+
+        // Optional: play music if uploaded
+        let music = document.getElementById("music");
+        if (music) music.play();
+    } else {
+        alert("Wrong password! Try again.");
+    }
+}
+</script>
+</body>
+</html>
